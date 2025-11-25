@@ -23,6 +23,6 @@ public class Primes {
             }
     double totalNumbers = n - 1;
     double percentage = (counter / totalNumbers) * 100.0;
-    System.out.printf("There are %d primes between 2 and %d (%.0f%% are primes).%n",counter,  n,percentage);
+    System.out.printf("Prime numbers up to 7: There are %d primes between 2 and %d (%.0f%% are primes).%n",counter,  n,percentage);
     }
 }
