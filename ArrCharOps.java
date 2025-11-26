@@ -116,10 +116,13 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
+        if (endIndex > arr.length) {
+        endIndex = arr.length;
+        }
         int newLength = (endIndex - beginIndex);
         char [] newChar = new char [newLength];
-            for(int i = beginIndex; i < endIndex; i++, i++){
-                newChar [i] = arr[i];
+            for(int i = beginIndex, j = 0; i < endIndex; i++, j++){
+                newChar [j] = arr[i];
             }
     return newChar;
     }
