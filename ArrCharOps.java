@@ -64,7 +64,7 @@ public class ArrCharOps {
      */
     public static int indexOf(char[] arr, char ch) {
         for (int i = 0; i < arr.length; i++){
-            if (ch == charAt[i]){
+            if (ch == arr[i]){
                 return i;
             }
         }
@@ -88,7 +88,7 @@ public class ArrCharOps {
     public static int lastIndexOf(char[] arr, char ch) {
         int last = -1;
         for (int i = 0; i < arr.length; i++){
-            if (ch == Arr[i]){
+            if (ch == arr[i]){
                 last = i;
             }
         }
@@ -101,10 +101,10 @@ public class ArrCharOps {
     int newLength = (arr1.length + arr2.length);
     char[] newArr = new char[newLength];
         for(int i = 0; i < arr1.length; i++){
-            newArr1[i] = arr1[i];
+            newArr[i] = arr1[i];
         }
         for(int j = 0; j < arr2.length; j++){
-            int totalIndex = (arr1.legth + j);
+            int totalIndex = (arr1.length + j);
             newArr[totalIndex] = arr2[j];
         }
     return newArr;
@@ -118,8 +118,8 @@ public class ArrCharOps {
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
         int newLength = (endIndex - beginIndex);
         char [] newChar = new char [newLength];
-            for(int i = beginIndex; i < endIndex; i++, j++){
-                newChar [j] = arr[i];
+            for(int i = beginIndex; i < endIndex; i++, i++){
+                newChar [i] = arr[i];
             }
     return newChar;
     }
@@ -132,7 +132,7 @@ public class ArrCharOps {
      *  The hash value of an empty array is zero.
      */
     public static long hashCode(char[] arr) {
-        int hash = 0;
+        long hash = 0;
         int n = arr.length;
             if(n == 0){
                 return 0;
