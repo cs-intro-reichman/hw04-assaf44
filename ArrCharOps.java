@@ -43,16 +43,15 @@ public class ArrCharOps {
      *  returns true; Otherwise returns false.
      */
     public static boolean equals(char[] arr1, char[] arr2) {
-    int length1 = arr.length(arr1);
-    int length2 = arr.length(arr2);
+    int length1 = arr1.length;
+    int length2 = arr2.length;
     if (length1 != length2){
         return false;
     } else {
         for(int i = 0; i<length1; i++){
             char char1 = charAt(arr1, i);
             char char2 = charAt(arr2, i);
-                if (char1 == char2){
-                }else{
+                if (char1 != char2){
                     return false;
                 }
         }
@@ -65,8 +64,8 @@ public class ArrCharOps {
      */
     public static int indexOf(char[] arr, char ch) {
         for (int i = 0; i < arr.length; i++){
-            if (ch = charAt[i]){
-                return indexOf[i];
+            if (ch == charAt[i]){
+                return i;
             }
         }
     return -1;
@@ -76,8 +75,8 @@ public class ArrCharOps {
      */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
         for (int i = fromIndex; i < arr.length; i++){
-            if (ch = charAt[i]){
-                return indexOf[i];
+            if (ch == arr[i]){
+                return i;
             }
         }
     return -1;
@@ -87,13 +86,13 @@ public class ArrCharOps {
      *  If no such character is found, returns -1.
      */
     public static int lastIndexOf(char[] arr, char ch) {
+        int last = -1;
         for (int i = 0; i < arr.length; i++){
-            if (ch = charAt[i]){
-                int last = indexOf[i];
+            if (ch == Arr[i]){
+                last = i;
             }
-            return last;
         }
-    return -1;
+    return last;
     }
 
     /* Returns an array which is the concatanation of the two given arrays.
@@ -102,13 +101,13 @@ public class ArrCharOps {
     int newLength = (arr1.length + arr2.length);
     char[] newArr = new char[newLength];
         for(int i = 0; i < arr1.length; i++){
-            newArr1[i] = charAt[i];
+            newArr1[i] = arr1[i];
         }
         for(int j = 0; j < arr2.length; j++){
-            int arr1Length = (arr1.legth + j);
-            TotalArr[arr1Length] = charAt [j];
+            int totalIndex = (arr1.legth + j);
+            newArr[totalIndex] = arr2[j];
         }
-    return TotalArr;
+    return newArr;
     }
 
     /** Returns a new array that can be described as a sub-array of this array.
@@ -117,10 +116,10 @@ public class ArrCharOps {
      *  characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
-        int newLength = (arr.length - (beginIndex - endIndex + 1));
+        int newLength = (endIndex - beginIndex);
         char [] newChar = new char [newLength];
-            for(i = beginIndex; i < (endIndex - 1); i++){
-                newChar [i] = charAt[i];
+            for(int i = beginIndex; i < endIndex; i++, j++){
+                newChar [j] = arr[i];
             }
     return newChar;
     }
@@ -134,12 +133,16 @@ public class ArrCharOps {
      */
     public static long hashCode(char[] arr) {
         int hash = 0;
-            for (int i=0; i<arr.length; i++){
-                char char1 = charAt[i];
-                int n = arr.length;
-                int tempHash = (indexOf(char1)*Math.pow(7 , n- 1 - i));
-                hash = hash + tempHash;
+        int n = arr.length;
+            if(n == 0){
+                return 0;
             }
+                for (int i=0; i<n; i++){
+                    char char1 = arr[i];
+                    long tempHash = (long) Math.pow(7, n - 1 - i);
+                    long term = (long)char1 * tempHash;
+                    hash = hash + term;
+                }
     return hash;
     }
 
